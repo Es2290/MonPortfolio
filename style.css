@@ -757,15 +757,22 @@
   /* ── CONTACT ── */
   #contact {
       border-top: 1px solid var(--border);
-      text-align: center;
   }
 
+  .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+  }
+
+  /* -- Left column -- */
   .contact-big {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 10vw, 9rem);
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
       letter-spacing: 0.02em;
       line-height: 0.9;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
       color: var(--white);
   }
 
@@ -777,53 +784,222 @@
   .contact-sub {
       font-family: 'Instrument Serif', serif;
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--muted);
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
+      line-height: 1.75;
   }
 
-  .contact-links {
+  .contact-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--lime);
+      border: 1px solid rgba(200, 241, 53, 0.25);
+      padding: 0.4rem 0.9rem;
+      margin-bottom: 2.5rem;
+  }
+
+  .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+      animation: statusPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes statusPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(200, 241, 53, 0.5); }
+      50%       { box-shadow: 0 0 0 6px rgba(200, 241, 53, 0); }
+  }
+
+  .contact-info-list {
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
   }
 
-  .contact-link {
-      font-size: 0.65rem;
+  .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--card);
+      text-decoration: none;
+      transition: background 0.2s;
+  }
+
+  .contact-info-item:hover {
+      background: #1f1f1f;
+  }
+
+  .contact-info-item:hover .contact-info-arrow {
+      color: var(--lime);
+      transform: rotate(45deg);
+  }
+
+  .contact-info-icon {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: var(--lime);
+      flex-shrink: 0;
+      font-family: 'IBM Plex Mono', monospace;
+      letter-spacing: 0;
+  }
+
+  .contact-info-text {
+      flex: 1;
+      min-width: 0;
+  }
+
+  .contact-info-label {
+      font-size: 0.52rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--muted);
-      text-decoration: none;
-      padding-bottom: 0.25rem;
-      border-bottom: 1px solid var(--border);
-      transition: all 0.2s;
+      margin-bottom: 0.15rem;
   }
 
-  .contact-link:hover {
-      color: var(--lime);
+  .contact-info-val {
+      font-size: 0.7rem;
+      color: var(--white);
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+
+  .contact-info-arrow {
+      font-size: 1rem;
+      color: var(--muted);
+      transition: color 0.2s, transform 0.2s;
+      flex-shrink: 0;
+  }
+
+  /* -- Right column : Form -- */
+  .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+  }
+
+  .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+  }
+
+  .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+  }
+
+  .form-group label {
+      font-size: 0.52rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group textarea {
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--white);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.85rem 1rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      resize: none;
+      width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+      color: #3a3a3a;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
       border-color: var(--lime);
+      background: #151515;
   }
 
-  .contact-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 1rem 3rem;
+  .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
       background: var(--lime);
       color: var(--bg);
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
+      border: 1px solid var(--lime);
       font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.25s;
+      margin-top: 0.25rem;
+      width: 100%;
   }
 
-  .contact-btn:hover {
+  .form-submit:hover {
       background: transparent;
       color: var(--lime);
-      outline: 1px solid var(--lime);
+  }
+
+  .form-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+  }
+
+  .form-submit-icon {
+      font-size: 1.1rem;
+      transition: transform 0.2s;
+  }
+
+  .form-submit:not(:disabled):hover .form-submit-icon {
+      transform: translateX(5px);
+  }
+
+  .form-success {
+      display: none;
+      align-items: center;
+      gap: 0.65rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      color: var(--lime);
+      padding: 0.9rem 1.1rem;
+      border: 1px solid rgba(200, 241, 53, 0.25);
+      background: rgba(200, 241, 53, 0.04);
+      animation: successFadeIn 0.4s ease;
+  }
+
+  .form-success.show {
+      display: flex;
+  }
+
+  .form-success-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+  }
+
+  @keyframes successFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
   }
 
   /* ── FOOTER ── */
@@ -885,6 +1061,15 @@
           flex-direction: column;
           align-items: flex-start;
           gap: 1rem;
+      }
+
+      .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+      }
+
+      .form-row {
+          grid-template-columns: 1fr;
       }
 
       footer {

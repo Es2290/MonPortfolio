@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio — Dav Bks</title>
   <link rel="stylesheet" href="style.css">
-  <script src="Index.JS"></script>
+
 
 </head>
 
@@ -112,7 +112,7 @@
   </section>
 
   <!-- ══ COMPÉTENCES ══ -->
-  <section id="skills" style="max-width:100%;padding:6rem 0;">
+  <section id="skills">
     <div class="inner">
       <div class="section-eyebrow">
         <span class="eyebrow-num">02</span>
@@ -368,19 +368,103 @@
 
   <!-- ══ CONTACT ══ -->
   <section id="contact">
-    <div class="contact-big">
-      TRAVAILLONS<br><span>ENSEMBLE</span>
-    </div>
-    <p class="contact-sub">Ouvert aux stages, projets freelance et collaborations</p>
 
-    <div class="contact-links">
-      <a href="mailto:davidbocossa23@gmail.com" class="contact-link">Email</a>
-      <a href="https://linkedin.com/in/david-bocossa-b698b2353" class="contact-link" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Es2290" class="contact-link" target="_blank">GitHub</a>
+    <div class="section-eyebrow">
+      <span class="eyebrow-num">04</span>
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-label">Prise de Contact</span>
     </div>
 
-    <br>
-    <a href="mailto:davidbocossa23@gmail.com" class="contact-btn">Envoyer un message →</a>
+    <div class="contact-grid">
+
+      <!-- ── Colonne gauche ── -->
+      <div class="contact-left fade-up">
+
+        <div class="contact-big">
+          TRAVAILLONS<br><span>ENSEMBLE</span>
+        </div>
+
+        <p class="contact-sub">
+          Ouvert aux stages, projets freelance et toute collaboration technique ou créative.
+          Je réponds généralement sous 48h.
+        </p>
+
+        <div class="contact-status">
+          <span class="status-dot"></span>
+          Disponible pour de nouvelles missions
+        </div>
+
+        <div class="contact-info-list">
+
+          <a href="mailto:davidbocossa23@gmail.com" class="contact-info-item">
+            <div class="contact-info-icon">✉</div>
+            <div class="contact-info-text">
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-val">davidbocossa23@gmail.com</div>
+            </div>
+            <span class="contact-info-arrow">↗</span>
+          </a>
+
+          <a href="https://linkedin.com/in/david-bocossa-b698b2353" class="contact-info-item" target="_blank">
+            <div class="contact-info-icon">in</div>
+            <div class="contact-info-text">
+              <div class="contact-info-label">LinkedIn</div>
+              <div class="contact-info-val">david-bocossa-b698b2353</div>
+            </div>
+            <span class="contact-info-arrow">↗</span>
+          </a>
+
+          <a href="https://github.com/Es2290" class="contact-info-item" target="_blank">
+            <div class="contact-info-icon">&lt;/&gt;</div>
+            <div class="contact-info-text">
+              <div class="contact-info-label">GitHub</div>
+              <div class="contact-info-val">github.com/Es2290</div>
+            </div>
+            <span class="contact-info-arrow">↗</span>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- ── Colonne droite : Formulaire ── -->
+      <div class="contact-right fade-up">
+        <form class="contact-form" id="contactForm" onsubmit="handleContactForm(event)" novalidate>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactName">Nom complet</label>
+              <input type="text" id="contactName" name="name" placeholder="Jean Dupont" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Adresse email</label>
+              <input type="email" id="contactEmail" name="email" placeholder="jean@exemple.com" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactSubject">Sujet</label>
+            <input type="text" id="contactSubject" name="subject" placeholder="Proposition de stage · Collaboration · Projet freelance">
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="6" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" id="formSubmit">
+            <span class="form-submit-text">Envoyer le message</span>
+            <span class="form-submit-icon">→</span>
+          </button>
+
+          <div class="form-success" id="formSuccess">
+            <span class="form-success-icon">✓</span>
+            Message envoyé — Je vous répondrai sous 48h !
+          </div>
+
+        </form>
+      </div>
+
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -388,6 +472,7 @@
     <p>© 2025 — David BOCOSSA. Tous droits réservés.</p>
     <p>Conçu & développé par Dav Bks.</p>
   </footer>
+  <script src="Index.JS" defer></script>
 </body>
 
 </html>
